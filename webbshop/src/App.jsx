@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-
+import ProductDetails from "./components/ProductDetails";
 // Layouts
 import RootLayout from "./layouts/RootLayout";
 
@@ -20,6 +20,10 @@ function App() {
           // path: "/",
           index: true,
           element: <Home />,
+        },
+        {
+          path: "product/:productId", // Use a dynamic parameter for productId
+          element: <ProductDetails />,
         },
         {
           path: "contact",

@@ -1,6 +1,7 @@
 import React from "react";
 import { useContext } from "react";
 import { ProductContext } from "../contexts/ProductsContext";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   const { products } = useContext(ProductContext);
@@ -26,6 +27,11 @@ const Home = () => {
           <p className="text-gray-700 mb-2">
             {truncateDescription(product.description, 40)}
           </p>
+          <button className="bg-blue-500 text-white p-2 mt-2 rounded">
+            Read More{" "}
+            <Link to={`/product/${product._id}`}>{"product/:productId"}</Link>
+          </button>
+
           <p className="text-green-600 font-bold">${product.price}</p>
 
           {/* Add other product details */}
