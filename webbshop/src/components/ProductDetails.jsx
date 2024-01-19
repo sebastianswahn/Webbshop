@@ -31,10 +31,12 @@ const ProductDetails = () => {
   // Render your product details here
   return (
     <div>
-      <h2>{product.name}</h2>
+      <h2 className="text-3xl font-bold mb-2 text-center">{product.name}</h2>
       <img src={product.images[0]} alt={product.name} />
-      <p>{product.description}</p>
-      <p>${product.price}</p>
+      <p className="text-gray-700 mb-2 text-xl">{product.description}</p>
+      <p className="text-green-600 my-8 font-bold text-3xl text-end">
+        ${product.price}
+      </p>
       {/* Add other details as needed */}
     </div>
   );
