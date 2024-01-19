@@ -20,7 +20,10 @@ export const Navbar = () => {
             </NavLink>
           </li>
           <li>
-            <NavLink className="text-white [&.active]:underline" to="/auth">
+            <NavLink
+              className="text-white [&.active]:underline"
+              to="/auth/login"
+            >
               Login
             </NavLink>
           </li>

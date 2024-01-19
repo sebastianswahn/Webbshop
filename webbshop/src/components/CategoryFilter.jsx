@@ -1,4 +1,3 @@
-// CategoryFilter.js
 import React from "react";
 import { useCategoryFilter } from "../contexts/CategoryFilterContext";
 
@@ -9,7 +8,7 @@ const CategoryFilter = () => {
 
   return (
     <div className="p-4">
-      <h3>Filter by Category:</h3>
+      <h3 className="font-bold">Choose Category</h3>
       <ul>
         {categories.map((category) => (
           <li

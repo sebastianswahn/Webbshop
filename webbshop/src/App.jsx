@@ -7,8 +7,10 @@ import RootLayout from "./layouts/RootLayout";
 // Pages
 import Home from "./pages/Home";
 import Contact from "./pages/Contact";
-import Auth from "./pages/Auth";
 import Orders from "./pages/Orders";
+import Login from "./pages/Auth/Login";
+import Register from "./pages/Auth/Register";
+import AuthLayout from "./pages/Auth/AuthLayout";
 
 function App() {
   const router = createBrowserRouter([
@@ -31,7 +33,17 @@ function App() {
         },
         {
           path: "auth",
-          element: <Auth />,
+          element: <AuthLayout />,
+          children: [
+            {
+              path: "login",
+              element: <Login />,
+            },
+            {
+              path: "register",
+              element: <Register />,
+            },
+          ],
         },
         {
           path: "orders",
