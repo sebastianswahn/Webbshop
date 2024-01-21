@@ -7,7 +7,6 @@ export const LoginForm = () => {
   const { login, token } = useAuth();
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
-
   // const navigate = useNavigate()
 
   const form = useFormik({
@@ -32,7 +31,6 @@ export const LoginForm = () => {
 
   return (
     <form onSubmit={form.handleSubmit}>
-      <p>{token}</p>
       <div className="mb-4">
         <label htmlFor="email" className="block">
           Email

@@ -32,6 +32,10 @@ function App() {
           element: <Contact />,
         },
         {
+          path: "orders",
+          element: <Orders />,
+        },
+        {
           path: "auth",
           element: <AuthLayout />,
           children: [
@@ -44,10 +48,6 @@ function App() {
               element: <Register />,
             },
           ],
-        },
-        {
-          path: "orders",
-          element: <Orders />,
         },
       ],
     },

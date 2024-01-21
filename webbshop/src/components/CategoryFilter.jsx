@@ -1,10 +1,10 @@
 import React from "react";
-import { useCategoryFilter } from "../contexts/CategoryFilterContext";
+import { useProducts } from "../contexts/ProductsContext";
 
 const categories = ["laptop", "TV", "mobiltelefoner", "dammsugare"];
 
 const CategoryFilter = () => {
-  const { selectedCategory, setCategory } = useCategoryFilter();
+  const { selectedCategory, setSelectedCategory } = useProducts();
 
   return (
     <div className="p-4">
@@ -13,7 +13,7 @@ const CategoryFilter = () => {
         {categories.map((category) => (
           <li
             key={category}
-            onClick={() => setCategory(category)}
+            onClick={() => setSelectedCategory(category)}
             style={{
               cursor: "pointer",
               fontWeight: category === selectedCategory ? "bold" : "normal",

@@ -1,7 +1,10 @@
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
+import { useAuth } from "../contexts/AuthContext";
 
 export const Navbar = () => {
+  const { isLoggedIn } = useAuth();
+
   return (
     <nav className="bg-emerald-800 py-4">
       <div className=" max-w-[1100px] m-auto px-2 flex justify-between items-center">
@@ -19,14 +22,18 @@ export const Navbar = () => {
               Contact
             </NavLink>
           </li>
-          <li>
-            <NavLink
-              className="text-white [&.active]:underline"
-              to="/auth/login"
-            >
-              Login
-            </NavLink>
-          </li>
+
+          {!isLoggedIn && (
+            <li>
+              <NavLink
+                className="text-white [&.active]:underline"
+                to="/auth/login"
+              >
+                Login
+              </NavLink>
+            </li>
+          )}
+
           <li>
             <NavLink className="text-white [&.active]:underline" to="/orders">
               Orders

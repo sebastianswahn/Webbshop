@@ -2,8 +2,10 @@ import { createContext, useContext, useEffect, useState } from "react";
 
 export const AuthContext = createContext();
 
-const AuthContextProvider = ({ children }) => {
+export const AuthContextProvider = ({ children }) => {
+  const localToken = localStorage.getItem("accesstoken");
   const [token, setToken] = useState(null);
+  const [isLoggedIn, setIsLoggedIn] = useState(localToken ?? false);
 
   useEffect(() => {
     if (token) return;
@@ -68,6 +70,7 @@ const AuthContextProvider = ({ children }) => {
         throw new Error(data);
       }
 
+      setIsLoggedIn(true);
       setToken(data.token);
       return { success: "User Logged In" };
     } catch (error) {
@@ -78,6 +81,7 @@ const AuthContextProvider = ({ children }) => {
   const logout = () => {
     localStorage.removeItem("accesstoken");
     setToken(null);
+    setIsLoggedIn(false);
   };
 
   const value = {
@@ -85,11 +89,10 @@ const AuthContextProvider = ({ children }) => {
     register,
     login,
     logout,
+    isLoggedIn,
   };
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 };
-
-export default AuthContextProvider;
 
 export const useAuth = () => {
   const context = useContext(AuthContext);

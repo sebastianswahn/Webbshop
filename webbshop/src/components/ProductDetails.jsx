@@ -2,10 +2,12 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios"; // Import your HTTP library (e.g., axios)
+import { useProducts } from "../contexts/ProductsContext";
 
 const ProductDetails = () => {
   const { productId } = useParams();
   const [product, setProduct] = useState(null);
+  const { cartItems, setcartItems } = useProducts();
 
   useEffect(() => {
     // Assuming you have a function like fetchProductById to get product details
@@ -37,7 +39,17 @@ const ProductDetails = () => {
       <p className="text-green-600 my-8 font-bold text-3xl text-end">
         ${product.price}
       </p>
-      {/* Add other details as needed */}
+      <button
+        onClick={() =>
+          setcartItems([
+            ...cartItems,
+            { name: product.name, price: product.price, id: product._id },
+          ])
+        }
+        className="bg-blue-500 text-white p-2 mt-2 rounded"
+      >
+        Add to cart{" "}
+      </button>
     </div>
   );
 };

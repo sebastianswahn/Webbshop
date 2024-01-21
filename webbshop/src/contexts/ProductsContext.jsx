@@ -1,10 +1,14 @@
-import React, { createContext, useState, useEffect } from "react";
+import React, { createContext, useContext, useState, useEffect } from "react";
 import axios from "axios";
 
-const ProductContext = createContext();
+export const ProductContext = createContext();
 
-const ProductProvider = ({ children }) => {
+export const ProductContextProvider = ({ children }) => {
   const [products, setProducts] = useState([]);
+  const [cartItems, setcartItems] = useState([]);
+  const [selectedCategory, setSelectedCategory] = useState(null);
+
+  console.log(cartItems);
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -22,10 +26,25 @@ const ProductProvider = ({ children }) => {
   }, []);
 
   return (
-    <ProductContext.Provider value={{ products }}>
+    <ProductContext.Provider
+      value={{
+        products,
+        cartItems,
+        setcartItems,
+        selectedCategory,
+        setSelectedCategory,
+      }}
+    >
       {children}
     </ProductContext.Provider>
   );
 };
 
-export { ProductContext, ProductProvider };
+export const useProducts = () => {
+  const context = useContext(ProductContext);
+
+  if (!context)
+    throw new Error("useProducts must be inside an ProductContextProvider");
+
+  return context;
+};
