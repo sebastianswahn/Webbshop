@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import ProductDetails from "./components/ProductDetails";
 // Layouts
@@ -11,6 +10,7 @@ import Orders from "./pages/Orders";
 import Login from "./pages/Auth/Login";
 import Register from "./pages/Auth/Register";
 import AuthLayout from "./pages/Auth/AuthLayout";
+import Cart from "./pages/Cart";
 
 function App() {
   const router = createBrowserRouter([
@@ -34,6 +34,10 @@ function App() {
         {
           path: "orders",
           element: <Orders />,
+        },
+        {
+          path: "cart",
+          element: <Cart />,
         },
         {
           path: "auth",

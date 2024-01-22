@@ -7,11 +7,11 @@ import { ProductContextProvider } from "./contexts/ProductsContext.jsx";
 import { AuthContextProvider } from "./contexts/AuthContext.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <ProductContextProvider>
-    <AuthContextProvider>
+  <AuthContextProvider>
+    <ProductContextProvider>
       <React.StrictMode>
         <App />
       </React.StrictMode>
-    </AuthContextProvider>
-  </ProductContextProvider>
+    </ProductContextProvider>
+  </AuthContextProvider>
 );

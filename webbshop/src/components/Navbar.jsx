@@ -39,6 +39,11 @@ export const Navbar = () => {
               Orders
             </NavLink>
           </li>
+          <li>
+            <NavLink className="text-white [&.active]:underline" to="/cart">
+              Cart
+            </NavLink>
+          </li>
         </ul>
       </div>
     </nav>
