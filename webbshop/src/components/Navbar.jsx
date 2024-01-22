@@ -33,6 +33,13 @@ export const Navbar = () => {
               </NavLink>
             </li>
           )}
+          {isLoggedIn && (
+            <li>
+              <NavLink className="text-white [&.active]:underline" to="/logout">
+                Logout
+              </NavLink>
+            </li>
+          )}
 
           <li>
             <NavLink className="text-white [&.active]:underline" to="/orders">

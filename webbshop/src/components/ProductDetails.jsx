@@ -40,12 +40,12 @@ const ProductDetails = () => {
         ${product.price}
       </p>
       <button
-        onClick={() =>
+        onClick={() => {
           setcartItems([
             ...cartItems,
             { name: product.name, price: product.price, id: product._id },
-          ])
-        }
+          ]);
+        }}
         className="bg-blue-500 text-white p-2 mt-2 rounded"
       >
         Add to cart{" "}

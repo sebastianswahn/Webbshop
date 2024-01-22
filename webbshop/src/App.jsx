@@ -11,6 +11,7 @@ import Login from "./pages/Auth/Login";
 import Register from "./pages/Auth/Register";
 import AuthLayout from "./pages/Auth/AuthLayout";
 import Cart from "./pages/Cart";
+import Logout from "./pages/Logout";
 
 function App() {
   const router = createBrowserRouter([
@@ -38,6 +39,10 @@ function App() {
         {
           path: "cart",
           element: <Cart />,
+        },
+        {
+          path: "logout",
+          element: <Logout />,
         },
         {
           path: "auth",
