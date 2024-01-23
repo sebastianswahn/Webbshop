@@ -67,7 +67,7 @@ export const LoginForm = () => {
       )}
       <button
         type="submit"
-        className="bg-purple-800 w-full py-1.5 rounded-md text-white hover:bg-purple-900 transition-colors"
+        className="bg-emerald-800 w-full py-1.5 rounded-md text-white hover:bg-purple-900 transition-colors"
       >
         Login
       </button>

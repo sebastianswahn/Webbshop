@@ -1,6 +1,7 @@
 import { useFormik } from "formik";
 import { useAuth } from "../../contexts/AuthContext";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 export const RegisterForm = () => {
   const { register } = useAuth();
@@ -64,10 +65,16 @@ export const RegisterForm = () => {
       )}
       <button
         type="submit"
-        className="bg-purple-800 w-full py-1.5 rounded-md text-white hover:bg-purple-900 transition-colors"
+        className="bg-emerald-800 w-full mb-4 py-1.5 rounded-md text-white hover:bg-purple-900 transition-colors"
       >
         Register
       </button>
+      <p>
+        Already a member?{" "}
+        <Link className="text-blue-600 underline" to="/auth/login">
+          Log in here!
+        </Link>
+      </p>
     </form>
   );
 };

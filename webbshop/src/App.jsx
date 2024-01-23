@@ -1,5 +1,6 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import ProductDetails from "./components/ProductDetails";
+import { useProducts } from "./contexts/ProductsContext";
 // Layouts
 import RootLayout from "./layouts/RootLayout";
 
@@ -13,11 +14,15 @@ import AuthLayout from "./pages/Auth/AuthLayout";
 import Cart from "./pages/Cart";
 import Logout from "./pages/Logout";
 
+import "tailwindcss/tailwind.css";
+
 function App() {
+  const { cartItems } = useProducts();
+
   const router = createBrowserRouter([
     {
       path: "/",
-      element: <RootLayout />,
+      element: <RootLayout cartCount={cartItems.length} />,
       children: [
         {
           // path: "/",

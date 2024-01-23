@@ -33,9 +33,13 @@ const ProductDetails = () => {
 
   // Render your product details here
   return (
-    <div>
+    <div className="max-h-screen">
       <h2 className="text-3xl font-bold mb-2 text-center">{product.name}</h2>
-      <img src={product.images[0]} alt={product.name} />
+      <img
+        className="items-center w-1/2 mx-auto"
+        src={product.images[0]}
+        alt={product.name}
+      />
       <p className="text-gray-700 mb-2 text-xl">{product.description}</p>
       <p className="text-green-600 my-8 font-bold text-3xl text-end">
         ${product.price}

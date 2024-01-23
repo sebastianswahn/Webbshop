@@ -1,10 +1,17 @@
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
+import { useEffect, useState } from "react";
 
-export const Navbar = () => {
+export const Navbar = ({ cartCount }) => {
   const { isLoggedIn } = useAuth();
+  const [bounce, setBounce] = useState(false);
 
+  useEffect(() => {
+    setBounce(true);
+    const timer = setTimeout(() => setBounce(false), 1000); // remove bounce after 1s
+    return () => clearTimeout(timer); // cleanup on unmount
+  }, [cartCount]);
   return (
     <nav className="bg-emerald-800 py-4">
       <div className=" max-w-[1100px] m-auto px-2 flex justify-between items-center">
@@ -48,7 +55,11 @@ export const Navbar = () => {
           </li>
           <li>
             <NavLink className="text-white [&.active]:underline" to="/cart">
-              Cart
+              Cart{" "}
+              <span className={`text-sm ${bounce ? "animate-bounce" : ""}`}>
+                {" "}
+                ({cartCount})
+              </span>
             </NavLink>
           </li>
         </ul>
@@ -56,3 +67,5 @@ export const Navbar = () => {
     </nav>
   );
 };
+
+export default Navbar;
