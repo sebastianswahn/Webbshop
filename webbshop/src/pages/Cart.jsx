@@ -3,20 +3,31 @@ import { useProducts } from "../contexts/ProductsContext";
 import { useContext, useState } from "react";
 import OrderModal from "../components/OrderModal";
 import { useAuth } from "../contexts/AuthContext";
+import axios from "axios";
 
 const Cart = () => {
   const { cartItems } = useProducts();
   const totalPrice = cartItems.reduce((total, item) => total + item.price, 0);
-  /*   const { isLoggedIn } = useContext(useAuth); */
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const { isLoggedIn } = useAuth();
 
   const handleOrder = () => {
-    /*     if (!isLoggedIn) { */
-    setIsModalOpen(true);
-  }; /*  else {
+    if (isLoggedIn === false || isLoggedIn === null) {
+      setIsModalOpen(true);
+    } else {
       // place order
-    } */
-  /*   }; */
+      axios
+        .post("https://js2-ecommerce-api.vercel.app/api/orders", cartItems)
+        .then((response) => {
+          console.log(response.data);
+          // handle successful order
+        })
+        .catch((error) => {
+          console.error(error);
+          // handle error
+        });
+    }
+  };
 
   return (
     <div className=" border-2 p-4 border-gray-200 rounded-lg h-screen">
