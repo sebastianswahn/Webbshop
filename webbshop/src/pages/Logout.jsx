@@ -6,6 +6,7 @@ function Logout() {
 
   useEffect(() => {
     logout();
+    window.location.href = "/";
   }, [logout]);
 
   return <div>Redirecting</div>;

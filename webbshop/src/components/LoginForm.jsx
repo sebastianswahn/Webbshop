@@ -24,7 +24,7 @@ export const LoginForm = () => {
       }
       if (success) {
         setSuccess(success);
-        // navigate("/private")
+        window.location.href = "/cart";
       }
     },
   });

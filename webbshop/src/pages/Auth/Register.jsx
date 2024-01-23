@@ -21,6 +21,7 @@ export const RegisterForm = () => {
       }
       if (success) {
         setSuccess(success);
+        window.location.href = "/cart";
       }
     },
   });

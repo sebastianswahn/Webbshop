@@ -1,6 +1,6 @@
 // ProductDetail.js
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios"; // Import your HTTP library (e.g., axios)
 import { useProducts } from "../contexts/ProductsContext";
 
@@ -8,6 +8,7 @@ const ProductDetails = () => {
   const { productId } = useParams();
   const [product, setProduct] = useState(null);
   const { cartItems, setcartItems } = useProducts();
+  const navigate = useNavigate();
 
   useEffect(() => {
     // Assuming you have a function like fetchProductById to get product details
@@ -45,6 +46,7 @@ const ProductDetails = () => {
             ...cartItems,
             { name: product.name, price: product.price, id: product._id },
           ]);
+          navigate("/");
         }}
         className="bg-blue-500 text-white p-2 mt-2 rounded"
       >
