@@ -5,9 +5,16 @@ import OrderModal from "../components/OrderModal";
 import { useAuth } from "../contexts/AuthContext";
 
 const Cart = () => {
-  const { cartItems, setcartItems } = useProducts();
+  const {
+    cartItems,
+    setcartItems,
+    addQuantity,
+    removeItem,
+    clearCart,
+    removeQuantity,
+  } = useProducts();
   const totalPrice = cartItems.reduce(
-    (total, product) => total + product.price,
+    (total, product) => total + product.price * product.quantity,
     0
   );
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -55,33 +62,57 @@ const Cart = () => {
   };
 
   return (
-    <div className=" border-2 p-4 border-gray-200 rounded-lg h-screen">
-      <h2 className="text-center mb-8 text-4xl">Shopping Cart</h2>
+    <div className="border-2 p-4 border-gray-200 rounded-lg h-screen">
+      <h2 className="text-center mb-8 text-4xl font-bold">Shopping Cart</h2>
       {cartItems.map((product, index) => (
         <div
           key={index}
-          className="text-center text-xl p-4 flex justify-center"
+          className="text-center text-xl p-4 flex justify-between items-center border-b-2 border-gray-200"
         >
-          <p className="px-4">{product.name}</p>{" "}
+          <p className="px-4 font-medium">{product.name}</p>
           <p className="text-green-600 font-bold">{product.price}$</p>
-          {/* adjust as needed based on the structure of your cart items */}
-          {/* display other properties of the item as needed */}
-          <div className="flex-1 text-right">
-            <p className="text-xl">Quantity: {product.quantity}</p>
+          <div className="flex items-center">
+            <p className="text-xl mr-4">x: {product.quantity} </p>
+            <div>
+              <button
+                className="bg-blue-500 text-white px-2 py-1 rounded-md mr-2"
+                onClick={() => addQuantity(product.id)}
+              >
+                +
+              </button>
+              <button
+                className="bg-blue-500 text-white px-2 py-1 rounded-md mr-2"
+                onClick={() => removeQuantity(product.id)}
+              >
+                -
+              </button>
+              <button
+                className="bg-red-500 text-white px-2 py-1 rounded-md"
+                onClick={() => removeItem(product.id)}
+              >
+                Remove Item
+              </button>
+            </div>
           </div>
         </div>
       ))}
       <h2 className="text-green-600 font-bold text-center text-3xl p-8">
         Total: {totalPrice}$
       </h2>
-      <div className="flex-row py-8 text-center justify-center items-center">
+      <div className="flex flex-col items-center py-8">
         <button
-          className="bg-emerald-600 text-white p-2 rounded-md"
+          className="bg-emerald-600 text-white p-2 rounded-md mx-4 mb-4"
           onClick={handleOrder}
         >
           Place Order
         </button>
-        <p className="mt-8">{message}</p>
+        <button
+          className="bg-emerald-600 text-white p-2 rounded-md mx-4"
+          onClick={clearCart}
+        >
+          Clear Cart
+        </button>
+        <p className="mt-8 text-red-600">{message}</p>
       </div>
       {isModalOpen && (
         <OrderModal onClose={() => setIsModalOpen(false)}>

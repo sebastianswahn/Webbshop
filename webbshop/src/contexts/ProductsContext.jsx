@@ -7,6 +7,31 @@ export const ProductContextProvider = ({ children }) => {
   const [products, setProducts] = useState([]);
   const [cartItems, setcartItems] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState(null);
+  const [totalPrice, setTotalPrice] = useState(0);
+
+  const addQuantity = (id) => {
+    setcartItems((prevItems) =>
+      prevItems.map((item) =>
+        item.id === id ? { ...item, quantity: item.quantity + 1 } : item
+      )
+    );
+  };
+
+  const removeQuantity = (id) => {
+    setcartItems((prevItems) =>
+      prevItems.map((item) =>
+        item.id === id ? { ...item, quantity: item.quantity - 1 } : item
+      )
+    );
+  };
+
+  const removeItem = (id) => {
+    setcartItems((prevItems) => prevItems.filter((item) => item.id !== id));
+  };
+
+  const clearCart = () => {
+    setcartItems([]);
+  };
 
   console.log(cartItems);
 
@@ -24,6 +49,13 @@ export const ProductContextProvider = ({ children }) => {
 
     fetchProducts();
   }, []);
+  useEffect(() => {
+    const newTotalPrice = cartItems.reduce(
+      (total, item) => total + item.price * item.quantity,
+      0
+    );
+    setTotalPrice(newTotalPrice);
+  }, [cartItems]);
 
   return (
     <ProductContext.Provider
@@ -33,6 +65,11 @@ export const ProductContextProvider = ({ children }) => {
         setcartItems,
         selectedCategory,
         setSelectedCategory,
+        addQuantity,
+        removeItem,
+        clearCart,
+        removeQuantity,
+        totalPrice,
       }}
     >
       {children}
