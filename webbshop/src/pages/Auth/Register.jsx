@@ -18,6 +18,13 @@ export const RegisterForm = () => {
     },
     validate: (values) => {
       const errors = {};
+      if (!values.email) {
+        errors.email = "Required";
+      } else if (
+        !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)
+      ) {
+        errors.email = "Invalid email address";
+      }
       if (values.password !== values.passwordConfirmation) {
         errors.passwordConfirmation = "Passwords do not match";
       }
@@ -32,7 +39,7 @@ export const RegisterForm = () => {
       }
       if (success) {
         setSuccess(success);
-        navigate("/cart");
+        navigate("/auth/login");
       }
     },
   });
@@ -54,6 +61,9 @@ export const RegisterForm = () => {
           type="text"
           className="border border-gray-400 rounded-md w-full px-2 py-1"
         />
+        {form.errors.email && (
+          <p className="text-red-500">{form.errors.email}</p>
+        )}
       </div>
       <div className="mb-4">
         <label htmlFor="password" className="block">
@@ -63,7 +73,7 @@ export const RegisterForm = () => {
           id="password"
           value={form.values.password}
           onChange={form.handleChange}
-          type="text"
+          type="password"
           className="border border-gray-400 rounded-md w-full px-2 py-1"
         />
       </div>{" "}

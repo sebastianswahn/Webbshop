@@ -47,12 +47,13 @@ export const Navbar = ({ cartCount }) => {
               </NavLink>
             </li>
           )}
-
-          <li>
-            <NavLink className="text-white [&.active]:underline" to="/orders">
-              Orders
-            </NavLink>
-          </li>
+          {isLoggedIn && (
+            <li>
+              <NavLink className="text-white [&.active]:underline" to="/orders">
+                Orders
+              </NavLink>
+            </li>
+          )}
           <li>
             <NavLink className="text-white [&.active]:underline" to="/cart">
               Cart{" "}
