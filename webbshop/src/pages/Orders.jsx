@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
+import { useAuth } from "../contexts/AuthContext";
 
 function Orders() {
   const [orders, setOrders] = useState([]);
+  const { token } = useAuth();
 
   useEffect(() => {
-    const token = "your_token_here"; // replace with your token
-
     fetch("https://js2-ecommerce-api.vercel.app/api/orders/", {
       headers: {
         Authorization: `Bearer ${token}`,

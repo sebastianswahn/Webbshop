@@ -9,6 +9,7 @@ const ProductDetails = () => {
   const [product, setProduct] = useState(null);
   const { cartItems, setcartItems } = useProducts();
   const navigate = useNavigate();
+  const [quantity, setQuantity] = useState(1);
 
   useEffect(() => {
     // Assuming you have a function like fetchProductById to get product details
@@ -44,11 +45,23 @@ const ProductDetails = () => {
       <p className="text-green-600 my-8 font-bold text-3xl text-end">
         ${product.price}
       </p>
+      <input
+        type="number"
+        value={quantity}
+        onChange={(e) => setQuantity(e.target.value)}
+        min="1"
+        className="mb-2"
+      />
       <button
         onClick={() => {
           setcartItems([
             ...cartItems,
-            { name: product.name, price: product.price, id: product._id },
+            {
+              name: product.name,
+              price: product.price,
+              id: product._id,
+              quantity: quantity,
+            },
           ]);
           navigate("/");
         }}
