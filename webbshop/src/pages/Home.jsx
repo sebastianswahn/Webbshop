@@ -31,17 +31,17 @@ const Home = () => {
               className="w-full h-40 object-cover mb-2"
             />
             <h2 className="text-xl font-bold mb-2">{product.name}</h2>
-            <p className="text-gray-700 mb-2">
+            <p className="text-gray-700 mb-4">
               {truncateDescription(product.description, 40)}
             </p>
 
             <Link
-              className="bg-blue-500 text-white p-2 mt-2 rounded"
+              className="bg-emerald-700 w-full mb-4 py-1.5 px-1.5 rounded-md text-white hover:bg-emerald-600 transition-colors"
               to={`/product/${product._id}`}
             >
               Read more
             </Link>
-            <p className="text-green-600 font-bold">${product.price}</p>
+            <p className="text-green-600 font-bold mt-4">${product.price}</p>
             {/* Add other product details */}
           </div>
         ))}

@@ -2,11 +2,13 @@ import { useFormik } from "formik";
 import { useAuth } from "../../contexts/AuthContext";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export const RegisterForm = () => {
   const { register } = useAuth();
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
+  const navigate = useNavigate();
 
   const form = useFormik({
     initialValues: {
@@ -30,13 +32,17 @@ export const RegisterForm = () => {
       }
       if (success) {
         setSuccess(success);
-        window.location.href = "/cart";
+        navigate("/cart");
       }
     },
   });
 
   return (
-    <form onSubmit={form.handleSubmit}>
+    <form
+      onSubmit={form.handleSubmit}
+      className="border p-4 shadow-xl rounded-lg w-[400px] bg-gray-200"
+    >
+      <h1 className="text-center pb-8 text-2xl">Register</h1>
       <div className="mb-4">
         <label htmlFor="email" className="block">
           Email
@@ -88,7 +94,7 @@ export const RegisterForm = () => {
       )}
       <button
         type="submit"
-        className="bg-emerald-800 w-full mb-4 py-1.5 rounded-md text-white hover:bg-purple-900 transition-colors"
+        className="bg-emerald-800 w-full mb-4 py-1.5 rounded-md text-white hover:bg-emerald-600 transition-colors"
       >
         Register
       </button>

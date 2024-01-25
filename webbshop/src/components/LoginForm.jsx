@@ -7,7 +7,7 @@ export const LoginForm = () => {
   const { login, token } = useAuth();
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
-  // const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const form = useFormik({
     initialValues: {
@@ -24,7 +24,7 @@ export const LoginForm = () => {
       }
       if (success) {
         setSuccess(success);
-        window.location.href = "/cart";
+        navigate("/cart");
       }
     },
   });
@@ -67,7 +67,7 @@ export const LoginForm = () => {
       )}
       <button
         type="submit"
-        className="bg-emerald-800 w-full py-1.5 rounded-md text-white hover:bg-purple-900 transition-colors"
+        className="bg-emerald-800 w-full py-1.5 rounded-md text-white hover:bg-emerald-600 transition-colors"
       >
         Login
       </button>

@@ -13,8 +13,8 @@ function AuthLayout() {
   }, [token]);
  */
   return (
-    <div className="h-screen flex items-center justify-center flex-col bg-gray-200">
-      <p className="text-3xl font-bold text-center my-5">Auth</p>
+    <div className="h-screen flex items-center justify-center flex-col bg-white">
+      <p className="text-3xl font-bold text-center my-5 hidden">Auth</p>
       <Outlet />
     </div>
   );
