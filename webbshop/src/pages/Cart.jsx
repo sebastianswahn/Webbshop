@@ -3,6 +3,7 @@ import { useProducts } from "../contexts/ProductsContext";
 import { useContext, useState } from "react";
 import OrderModal from "../components/OrderModal";
 import { useAuth } from "../contexts/AuthContext";
+import { FaPlus, FaMinus, FaTrash } from "react-icons/fa";
 
 const Cart = () => {
   const {
@@ -78,19 +79,19 @@ const Cart = () => {
                 className="bg-blue-500 text-white px-2 py-1 rounded-md mr-2"
                 onClick={() => addQuantity(product.id)}
               >
-                +
+                <FaPlus />
               </button>
               <button
                 className="bg-blue-500 text-white px-2 py-1 rounded-md mr-2"
                 onClick={() => removeQuantity(product.id)}
               >
-                -
+                <FaMinus />
               </button>
               <button
                 className="bg-red-500 text-white px-2 py-1 rounded-md"
                 onClick={() => removeItem(product.id)}
               >
-                Remove Item
+                <FaTrash />
               </button>
             </div>
           </div>

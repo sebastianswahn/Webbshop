@@ -31,7 +31,7 @@ function Orders() {
           className="flex-row text-center p-4 border-2 border-solid border-gray-200 rounded-lg shadow-md m-4 bg-gray-1"
           key={order._id}
         >
-          <h2 className="hidden">Order ID: {order._id}</h2>
+          <h2 className="text-2xl">Order number: {order._id}</h2>
           <p className="text-gray-500 py-4">
             Order Date: {new Date(order.createdAt).toLocaleDateString()}
           </p>

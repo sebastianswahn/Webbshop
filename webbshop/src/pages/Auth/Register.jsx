@@ -12,6 +12,14 @@ export const RegisterForm = () => {
     initialValues: {
       email: "",
       password: "",
+      passwordConfirmation: "",
+    },
+    validate: (values) => {
+      const errors = {};
+      if (values.password !== values.passwordConfirmation) {
+        errors.passwordConfirmation = "Passwords do not match";
+      }
+      return errors;
     },
     onSubmit: async (values) => {
       console.log(values);
@@ -52,9 +60,24 @@ export const RegisterForm = () => {
           type="text"
           className="border border-gray-400 rounded-md w-full px-2 py-1"
         />
+      </div>{" "}
+      <div className="mb-4">
+        <label htmlFor="passwordConfirmation" className="block">
+          Confirm Password
+        </label>
+        <input
+          id="passwordConfirmation"
+          value={form.values.passwordConfirmation}
+          onChange={form.handleChange}
+          type="password"
+          className="border border-gray-400 rounded-md w-full px-2 py-1"
+        />
+        {form.errors.passwordConfirmation && (
+          <p className="text-red-500">{form.errors.passwordConfirmation}</p>
+        )}
       </div>
       {error && (
-        <p className="bg-red-500/30 text-red-800 font-semibold px-2 py-1 mb-3">
+        <p className="bg-red-500/30 text-red-800 font-semibold px-2 py-1 mb-3 rounded-md">
           {error}
         </p>
       )}
