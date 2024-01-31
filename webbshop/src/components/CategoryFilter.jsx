@@ -8,7 +8,7 @@ const CategoryFilter = () => {
 
   return (
     <div className="py-4 flex">
-      <h3 className="font-bold pb-4">Choose Category</h3>
+      <h3 className="font-bold pb-4">Choose Category:</h3>
       <ul className="flex ">
         {categories.map((category) => (
           <li
