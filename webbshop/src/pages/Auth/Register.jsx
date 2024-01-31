@@ -47,7 +47,7 @@ export const RegisterForm = () => {
   return (
     <form
       onSubmit={form.handleSubmit}
-      className="border p-4 shadow-xl rounded-lg w-[400px] bg-gray-200"
+      className="border p-4 shadow-xl rounded-lg w-[400px] bg-pink-50"
     >
       <h1 className="text-center pb-8 text-2xl">Register</h1>
       <div className="mb-4">
@@ -104,7 +104,7 @@ export const RegisterForm = () => {
       )}
       <button
         type="submit"
-        className="bg-emerald-800 w-full mb-4 py-1.5 rounded-md text-white hover:bg-emerald-600 transition-colors"
+        className="bg-pink-400 w-full mb-4 py-1.5 rounded-md text-white hover:bg-pink-600 transition-colors"
       >
         Register
       </button>

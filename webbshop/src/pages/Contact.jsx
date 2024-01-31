@@ -32,10 +32,10 @@ function Contact() {
     },
   });
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
-      <h1 className="text-center text-4xl p-4">Send us a message!</h1>
+    <div className="flex flex-col items-center justify-center mt-12 bg-pink-100">
+      <h1 className="text-center text-4xl p-4 pb-12">Send us a message!</h1>
       <form
-        className="w-full max-w-sm bg-white rounded px-8 pt-6 pb-8 mb-4"
+        className="w-full max-w-md bg-white rounded px-8 pt-6 pb-8 mb-4"
         onSubmit={formik.handleSubmit}
       >
         <div className="mb-4">
@@ -95,7 +95,7 @@ function Contact() {
 
         <div className="flex items-center justify-between">
           <button
-            className="bg-emerald-800 w-full mb-4 py-1.5 rounded-md text-white hover:bg-emerald-600 transition-colors"
+            className="bg-pink-400 w-full mb-4 py-1.5 rounded-md text-white hover:bg-pink-600 transition-colors"
             type="submit"
           >
             Send

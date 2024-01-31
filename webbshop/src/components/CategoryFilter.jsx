@@ -7,12 +7,12 @@ const CategoryFilter = () => {
   const { selectedCategory, setSelectedCategory } = useProducts();
 
   return (
-    <div className="p-2">
+    <div className="py-4 flex">
       <h3 className="font-bold pb-4">Choose Category</h3>
-      <ul>
+      <ul className="flex ">
         {categories.map((category) => (
           <li
-            className="pb-1"
+            className="px-3"
             key={category}
             onClick={() => setSelectedCategory(category)}
             style={{

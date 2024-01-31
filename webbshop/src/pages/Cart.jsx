@@ -102,13 +102,13 @@ const Cart = () => {
       </h2>
       <div className="flex flex-col items-center py-8">
         <button
-          className="bg-emerald-600 text-white p-2 rounded-md mx-4 mb-4"
+          className="bg-pink-400 text-white p-2 rounded-md mx-4 mb-4"
           onClick={handleOrder}
         >
           Place Order
         </button>
         <button
-          className="bg-emerald-600 text-white p-2 rounded-md mx-4"
+          className="bg-pink-400 text-white p-2 rounded-md mx-4"
           onClick={clearCart}
         >
           Clear Cart

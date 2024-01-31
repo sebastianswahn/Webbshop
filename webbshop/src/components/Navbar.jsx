@@ -13,7 +13,7 @@ export const Navbar = ({ cartCount }) => {
     return () => clearTimeout(timer); // cleanup on unmount
   }, [cartCount]);
   return (
-    <nav className="bg-emerald-800 py-4">
+    <nav className="bg-pink-400 py-4">
       <div className=" max-w-[1100px] m-auto px-2 flex justify-between items-center">
         <Link className="text-white text-2xl font-semibold" to="/">
           <p>My Store</p>

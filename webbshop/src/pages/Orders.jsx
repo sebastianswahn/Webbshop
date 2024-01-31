@@ -24,7 +24,7 @@ function Orders() {
 
   return (
     <div>
-      <h1 className="text-center text-4xl">Orders</h1>
+      <h1 className="text-center py-10 text-4xl">Orders</h1>
       {showModal && <OrderHistoryModal />}
       {orders.map((order) => (
         <div

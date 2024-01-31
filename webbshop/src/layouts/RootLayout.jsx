@@ -3,9 +3,9 @@ import { Navbar } from "../components/Navbar";
 
 function RootLayout({ cartCount }) {
   return (
-    <div className="h-screen ">
+    <div className="h-screen bg-pink-100 ">
       <Navbar cartCount={cartCount} />
-      <div className="px-2 max-w-[900px] m-auto">
+      <div className="px-2 max-w-[1100px] m-auto">
         <Outlet />
       </div>
     </div>
