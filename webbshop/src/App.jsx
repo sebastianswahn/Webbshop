@@ -30,7 +30,7 @@ function App() {
           element: <Home />,
         },
         {
-          path: "product/:productId", // Use a dynamic parameter for productId
+          path: "product/:productId",
           element: <ProductDetails />,
         },
         {

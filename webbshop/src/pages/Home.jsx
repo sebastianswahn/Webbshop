@@ -31,7 +31,7 @@ const Home = () => {
             <img
               src={product.images[0]}
               alt={product.name}
-              className="w-full h-40 object-cover my-4"
+              className="w-full object-cover my-4"
             />
 
             <p className="text-gray-700 mb-4">

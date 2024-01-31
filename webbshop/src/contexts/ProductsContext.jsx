@@ -17,6 +17,24 @@ export const ProductContextProvider = ({ children }) => {
     );
   };
 
+  /* 
+  const addQuantity = (newItem) => {
+    setcartItems((prevItems) => {
+      const existingItem = prevItems.find((item) => item.id === newItem.id);
+
+      if (existingItem) {
+        return prevItems.map((item) =>
+          item.id === newItem.id
+            ? { ...item, quantity: item.quantity + 1 }
+            : item
+        );
+      } else {
+        return [...prevItems, { ...newItem, quantity: 1 }];
+      }
+    });
+  };
+ */
+
   const removeQuantity = (id) => {
     setcartItems((prevItems) =>
       prevItems.map((item) =>

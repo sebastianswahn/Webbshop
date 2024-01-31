@@ -1,7 +1,7 @@
 import React from "react";
 import { useProducts } from "../contexts/ProductsContext";
 
-const categories = ["laptop", "TV", "mobiltelefoner", "dammsugare"];
+const categories = ["all", "laptop", "TV", "mobiltelefoner", "dammsugare"];
 
 const CategoryFilter = () => {
   const { selectedCategory, setSelectedCategory } = useProducts();
@@ -14,11 +14,14 @@ const CategoryFilter = () => {
           <li
             className="px-3"
             key={category}
-            onClick={() => setSelectedCategory(category)}
+            onClick={() =>
+              setSelectedCategory(category === "all" ? null : category)
+            }
             style={{
               cursor: "pointer",
               fontWeight: category === selectedCategory ? "bold" : "normal",
               color: category === selectedCategory ? "red" : "black",
+              textTransform: "capitalize",
             }}
           >
             {category}

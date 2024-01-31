@@ -27,11 +27,10 @@ const Cart = () => {
     if (isLoggedIn === false || isLoggedIn === null) {
       setIsModalOpen(true);
     } else {
-      // place order
       console.log(cartItems);
       const orderItems = {
         products: cartItems.map((item) => ({
-          productId: item.id, // assuming the product id is stored in _id
+          productId: item.id,
           quantity: item.quantity,
         })),
       };
@@ -52,11 +51,9 @@ const Cart = () => {
       const data = await res.json();
       console.log(data);
       if (res.ok) {
-        // If the response is ok, clear the cart and show a success message
         setcartItems([]);
         setMessage("Order placed successfully!");
       } else {
-        // If there was an error, show an error message
         setMessage("There was an error placing your order.");
       }
     }

@@ -28,7 +28,7 @@ function Orders() {
       {showModal && <OrderHistoryModal />}
       {orders.map((order) => (
         <div
-          className="flex-row text-center p-4 border-2 border-solid border-gray-200 rounded-lg shadow-md m-4 bg-gray-1"
+          className="flex-row text-center p-4 border-2 border-solid border-gray-200 rounded-lg shadow-lg m-4 bg-white"
           key={order._id}
         >
           <h2 className="text-2xl">Order number: {order._id}</h2>

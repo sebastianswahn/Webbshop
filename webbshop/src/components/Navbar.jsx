@@ -9,8 +9,8 @@ export const Navbar = ({ cartCount }) => {
 
   useEffect(() => {
     setBounce(true);
-    const timer = setTimeout(() => setBounce(false), 1000); // remove bounce after 1s
-    return () => clearTimeout(timer); // cleanup on unmount
+    const timer = setTimeout(() => setBounce(false), 1000);
+    return () => clearTimeout(timer);
   }, [cartCount]);
   return (
     <nav className="bg-pink-400 py-4">
