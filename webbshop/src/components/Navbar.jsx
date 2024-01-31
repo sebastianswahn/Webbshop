@@ -15,10 +15,10 @@ export const Navbar = ({ cartCount }) => {
   return (
     <nav className="bg-pink-400 py-4">
       <div className=" max-w-[1100px] m-auto px-2 flex justify-between items-center">
-        <Link className="text-white text-2xl font-semibold" to="/">
+        <Link className="text-white text-4xl font-semibold" to="/">
           <p>My Store</p>
         </Link>
-        <ul className="flex gap-x-8">
+        <ul className="flex text-lg gap-x-8">
           <li>
             <NavLink className="text-white [&.active]:underline" to="/">
               Home

@@ -60,16 +60,19 @@ const Cart = () => {
   };
 
   return (
-    <div className="border-2 p-4 border-gray-200 rounded-lg h-screen">
-      <h2 className="text-center mb-8 text-4xl font-bold">Shopping Cart</h2>
+    <div className=" h-screen">
+      <h2 className="text-center mb-8 text-4xl pt-6 font-bold">
+        Shopping Cart
+      </h2>
       {cartItems.map((product, index) => (
         <div
           key={index}
-          className="text-center text-xl p-4 flex justify-between items-center border-b-2 border-gray-200"
+          className="text-center text-xl p-4 flex justify-between items-center border-2 rounded-md my-2 border-pink-300"
         >
           <p className="px-4 font-medium">{product.name}</p>
-          <p className="text-green-600 font-bold">{product.price}$</p>
+
           <div className="flex items-center">
+            <p className="text-green-600 font-bold mx-8">{product.price}$</p>
             <p className="text-xl mr-4">x: {product.quantity} </p>
             <div>
               <button

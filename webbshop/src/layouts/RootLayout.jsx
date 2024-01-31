@@ -5,7 +5,7 @@ function RootLayout({ cartCount }) {
   return (
     <div className="h-full bg-pink-100 ">
       <Navbar cartCount={cartCount} />
-      <div className="px-2 max-w-[1100px] m-auto">
+      <div className="px-2 max-w-[1100px] m-auto h-screen bg-pink-100">
         <Outlet />
       </div>
     </div>
