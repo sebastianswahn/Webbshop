@@ -21,7 +21,6 @@ const Home = () => {
     <div className="flex-row bg-pink-100 ">
       <CategoryFilter />
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 mt-4 bg-pink-100">
-        {/* Render products here */}
         {selected.map((product) => (
           <div key={product._id} className="p-4 bg-white rounded shadow">
             <p className="hidden">{product.category}</p>
@@ -45,7 +44,6 @@ const Home = () => {
               Read more
             </Link>
             <p className="text-green-600 font-bold mt-4">${product.price}</p>
-            {/* Add other product details */}
           </div>
         ))}
       </div>

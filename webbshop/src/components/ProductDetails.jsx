@@ -7,7 +7,7 @@ import { useProducts } from "../contexts/ProductsContext";
 const ProductDetails = () => {
   const { productId } = useParams();
   const [product, setProduct] = useState(null);
-  const { cartItems, setcartItems } = useProducts();
+  const { cartItems, setcartItems, addQuantity } = useProducts();
   const navigate = useNavigate();
   const [quantity, setQuantity] = useState(1);
 
@@ -30,7 +30,26 @@ const ProductDetails = () => {
     return <div>Loading...</div>;
   }
 
-  // Render your product details here
+  const handleAddToCart = (id) => {
+    const existingItem = cartItems.find((item) => item.id === id);
+
+    if (existingItem) {
+      addQuantity(id);
+    } else {
+      setcartItems([
+        ...cartItems,
+        {
+          name: product.name,
+          price: product.price,
+          id: product._id,
+          quantity: quantity,
+        },
+      ]);
+    }
+
+    navigate("/");
+  };
+
   return (
     <div className="max-h-screen">
       <h2 className="text-3xl font-bold mb-2 text-center">{product.name}</h2>
@@ -51,18 +70,7 @@ const ProductDetails = () => {
         className="mb-2"
       />
       <button
-        onClick={() => {
-          setcartItems([
-            ...cartItems,
-            {
-              name: product.name,
-              price: product.price,
-              id: product._id,
-              quantity: quantity,
-            },
-          ]);
-          navigate("/");
-        }}
+        onClick={() => handleAddToCart(product._id)}
         className="bg-blue-500 text-white p-2 mt-2 rounded"
       >
         Add to cart{" "}

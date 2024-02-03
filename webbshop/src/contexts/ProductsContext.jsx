@@ -10,30 +10,12 @@ export const ProductContextProvider = ({ children }) => {
   const [totalPrice, setTotalPrice] = useState(0);
 
   const addQuantity = (id) => {
-    setcartItems((prevItems) =>
-      prevItems.map((item) =>
-        item.id === id ? { ...item, quantity: item.quantity + 1 } : item
-      )
-    );
-  };
-
-  /* 
-  const addQuantity = (newItem) => {
     setcartItems((prevItems) => {
-      const existingItem = prevItems.find((item) => item.id === newItem.id);
-
-      if (existingItem) {
-        return prevItems.map((item) =>
-          item.id === newItem.id
-            ? { ...item, quantity: item.quantity + 1 }
-            : item
-        );
-      } else {
-        return [...prevItems, { ...newItem, quantity: 1 }];
-      }
+      return prevItems.map((item) => {
+        return item.id === id ? { ...item, quantity: item.quantity + 1 } : item;
+      });
     });
   };
- */
 
   const removeQuantity = (id) => {
     setcartItems((prevItems) =>
