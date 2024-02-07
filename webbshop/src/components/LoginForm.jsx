@@ -51,7 +51,7 @@ export const LoginForm = () => {
           id="password"
           value={form.values.password}
           onChange={form.handleChange}
-          type="text"
+          type="password"
           className="border border-gray-400 rounded-md w-full px-2 py-1"
         />
       </div>
